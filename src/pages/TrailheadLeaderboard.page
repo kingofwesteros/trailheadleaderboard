@@ -1,0 +1,81 @@
+<apex:page controller="trailheadLeaderBoardController" showchat="false" sidebar="false" standardStylesheets="true" showheader="false" id="page">
+
+    <style>
+
+        table {
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+        }
+        h1 {font-size:30px;}
+        h2 {font-size:20px;}
+
+        .totalpointscolumn
+        {
+            font-size:20px;
+            font-weight: bold;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+    </style>
+
+    <!--Header on the page-->
+    <div id="AppBodyHeader" class="bPageHeader">
+    <table id="phHeader" class="phHeader brandZeronaryBgr" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="center" class="left">
+                <a href="http://adamtoarchitect.com">
+            <img src="{!$Resource.TrailheadHeader}" alt="Trailhead" width="750" height="300" id="phHeaderLogoImage" title="Trailhead" >
+            </img>
+            </a>
+            </td>
+        </tr>
+    </table>
+    </div>
+
+    <!--table that contains images and the countdown -->
+    <table>
+    <!--    <tr><td align="center"><h1>{!trailsettings.Header_Message__c}</h1><br/><br/></td></tr> -->
+        <tr><td align="center"><h2>Welcome to Trailhead for All!
+
+        </h2></td></tr>
+        <tr><td align="center"><h3>Earn all the badges!</h3><br/></td></tr>
+    </table>
+    <br/>
+    <br/>
+
+    <apex:pageMessages />
+
+
+    <!--Table that contains the leaderboard-->
+      <apex:form >
+      <apex:pageblock >
+          <apex:pageBlockButtons location="top">
+             <apex:commandLink styleClass="btn" action="{!launchTrailhead}" value="I watch to catch up! Take me to Trailhead!" target="_blank"/>
+          </apex:pageBlockButtons>
+          
+          <apex:pageBlockButtons location="top">
+              <apex:commandButton action="{!first}" value="First"/>
+              <apex:commandButton action="{!previous}" rendered="{!hasPrevious}" value="Previous"/>
+              <apex:commandButton action="{!next}" rendered="{!hasNext}" value="Next"/>
+              <apex:commandButton action="{!last}" value="Last"/>
+          </apex:pageBlockButtons>
+
+          <apex:pageblocktable value="{!contacts}" var="cw">
+
+              <apex:column headervalue="Rank" value="{!cw.count}" />
+              <apex:column headerValue="Trailblazer" styleclass="totalpointscolumn">
+                <a href="https://developer.salesforce.com/forums/ForumsTrailheadProfile?userId={!cw.c.SF_Dev_User_Id__c}" target="_blank">
+                    <apex:outputText value="{!cw.c.FirstName} {!cw.c.LastName}"/>
+                </a>
+              </apex:column>
+              <apex:column headervalue="Badges" value="{!cw.badgeTotal}"/>
+              <apex:column headervalue="Total Points" value="{!cw.c.Total_Points__c}"/>
+
+          </apex:pageblocktable>
+      </apex:pageblock>
+          
+      </apex:form>
+</apex:page>

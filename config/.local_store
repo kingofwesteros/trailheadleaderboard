@@ -1,0 +1,72 @@
+{
+    "TrailheadHeader.resource": {
+        "createdById": "00536000001A0DCAA0",
+        "createdByName": "Adam Olshansky",
+        "createdDate": "2016-05-05T06:47:41.000Z",
+        "fileName": "unpackaged/staticresources/TrailheadHeader.resource",
+        "fullName": "TrailheadHeader",
+        "id": "0813600000166iqAAA",
+        "lastModifiedById": "00536000001A0DCAA0",
+        "lastModifiedByName": "Adam Olshansky",
+        "lastModifiedDate": "2016-05-05T06:47:41.000Z",
+        "manageableState": "unmanaged",
+        "type": "StaticResource",
+        "mmState": "clean"
+    },
+    "SLDS103.resource": {
+        "createdById": "00536000001A0DCAA0",
+        "createdByName": "Adam Olshansky",
+        "createdDate": "2016-05-05T07:00:50.000Z",
+        "fileName": "unpackaged/staticresources/SLDS103.resource",
+        "fullName": "SLDS103",
+        "id": "0813600000166kNAAQ",
+        "lastModifiedById": "00536000001A0DCAA0",
+        "lastModifiedByName": "Adam Olshansky",
+        "lastModifiedDate": "2016-05-05T07:00:50.000Z",
+        "manageableState": "unmanaged",
+        "type": "StaticResource",
+        "mmState": "clean"
+    },
+    "LightningLeaderboard.page": {
+        "createdById": "00536000001A0DCAA0",
+        "createdByName": "Adam Olshansky",
+        "createdDate": "2016-05-05T07:02:11.000Z",
+        "fileName": "unpackaged/pages/LightningLeaderboard.page",
+        "fullName": "LightningLeaderboard",
+        "id": "06636000003oAncAAE",
+        "lastModifiedById": "00536000001A0DCAA0",
+        "lastModifiedByName": "Adam Olshansky",
+        "lastModifiedDate": "2016-05-05T07:28:43.000Z",
+        "manageableState": "unmanaged",
+        "type": "ApexPage",
+        "mmState": "clean"
+    },
+    "TrailheadLeaderboard.page": {
+        "createdById": "00536000001A0DCAA0",
+        "createdByName": "Adam Olshansky",
+        "createdDate": "2016-05-05T06:26:21.000Z",
+        "fileName": "unpackaged/pages/TrailheadLeaderboard.page",
+        "fullName": "TrailheadLeaderboard",
+        "id": "06636000003oAAKAA2",
+        "lastModifiedById": "00536000001A0DCAA0",
+        "lastModifiedByName": "Adam Olshansky",
+        "lastModifiedDate": "2016-05-05T06:55:24.000Z",
+        "manageableState": "unmanaged",
+        "type": "ApexPage",
+        "mmState": "clean"
+    },
+    "trailheadLeaderBoardController.cls": {
+        "createdById": "00536000001A0DCAA0",
+        "createdByName": "Adam Olshansky",
+        "createdDate": "2016-05-05T06:27:09.000Z",
+        "fileName": "unpackaged/classes/trailheadLeaderBoardController.cls",
+        "fullName": "trailheadLeaderBoardController",
+        "id": "01p3600000AMyPEAA1",
+        "lastModifiedById": "00536000001A0DCAA0",
+        "lastModifiedByName": "Adam Olshansky",
+        "lastModifiedDate": "2016-05-05T06:46:43.000Z",
+        "manageableState": "unmanaged",
+        "type": "ApexClass",
+        "mmState": "clean"
+    }
+}

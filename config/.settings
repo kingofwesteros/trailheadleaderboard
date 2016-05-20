@@ -1,0 +1,16 @@
+{
+    "projectName": "SaasySistah",
+    "username": "adamolshansky@saasysistah.com",
+    "id": "21ea0070-1e41-11e6-94cb-d399c7ff2046",
+    "namespace": "",
+    "environment": "developer",
+    "loginUrl": "https://login.salesforce.com/",
+    "workspace": "/Users/kingadam/Documents/Salesforce/Code",
+    "subscription": [
+        "ApexClass",
+        "ApexComponent",
+        "ApexPage",
+        "ApexTrigger",
+        "StaticResource"
+    ]
+}

@@ -1,0 +1,162 @@
+<apex:page showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">    
+
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">    
+
+<head>
+  <title>Lightning Trailhead Leaderboard</title>
+  <apex:stylesheet value="{!URLFOR($Resource.SLDS103, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />
+  <img src="{!$Resource.TrailheadHeader}" alt="Trailhead" width="750" height="300" id="phHeaderLogoImage" title="Trailhead" />
+</head>
+
+<apex:remoteObjects >
+  <apex:remoteObjectModel name="Contact" fields="Id,Name,Title,LastModifiedDate,PhotoUrl,FirstName,LastName,Badges__c,Total_Points__c,Trailhead_Url__c,SF_Dev_User_Id__c"/>
+</apex:remoteObjects>
+
+<body>    
+
+  <!-- REQUIRED SLDS WRAPPER -->
+  <div class="slds">    
+
+    <!-- MASTHEAD -->
+    <p class="slds-text-heading--label slds-m-bottom--small">
+      Salesforce Lightning Design System Visualforce Workshop
+    </p>
+    <!-- / MASTHEAD -->    
+
+    <!-- PAGE HEADER -->
+    <div class="slds-page-header" role="banner">
+    
+      <!-- LAYOUT GRID -->
+      <div class="slds-grid">
+    
+        <!-- GRID COL -->
+        <div class="slds-col">
+          <!-- HEADING AREA -->
+            <!-- MEDIA OBJECT = FIGURE + BODY -->
+            <div class="slds-media">
+              <div class="slds-media__figure">
+                <span class="slds-avatar slds-avatar--large">
+                    <img src="{!URLFOR($Resource.SLDS103, 'assets/images/avatar2.jpg')}" alt="" />
+                </span>
+              </div>
+              <div class="slds-media__body">
+                <p class="slds-text-heading--label">Trailhead 4 All</p>
+                <h1 class="slds-text-heading--medium">Trailblazers</h1>
+              </div>
+            </div>
+            <!-- / MEDIA OBJECT -->
+            <!-- /HEADING AREA -->
+
+        </div>
+    
+        <!-- ACTION BUTTONS -->
+        <!-- / ACTION BUTTONS -->
+    
+      </div>
+      <!-- / LAYOUT GRID -->
+    
+      	<!-- PAGE HEADER DETAIL ROW -->
+        <div class="slds-grid slds-page-header__detail-row">
+          <div class="slds-col--padded slds-size--1-of-4">
+            <dl>
+              <dt>
+                <p class="slds-text-heading--label slds-truncate">Welcome!</p>
+              </dt>
+              <dd>
+                <p class="slds-text-body--regular slds-truncate">Trailhead 4 All</p>
+              </dd>
+            </dl>
+          </div>
+          <div class="slds-col--padded slds-size--1-of-4">
+            <dl>
+              <dt>
+                <p class="slds-text-heading--label slds-truncate">Trailhead</p>
+              </dt>
+                <dd><a href="https://developer.salesforce.com/trailhead">Earn More Badges!</a></dd>
+            </dl>
+          </div>
+          <div class="slds-col--padded slds-size--1-of-4">
+            <dl>
+              <dt>
+                <p class="slds-text-heading--label slds-truncate">Success</p>
+              </dt>
+                <dd><a href="https://success.salesforce.com">Join the community!</a></dd>
+            </dl>
+          </div>
+          <div class="slds-col--padded slds-size--1-of-4">
+            <dl>
+              <dt>
+                <p class="slds-text-heading--label slds-truncate">Salesforce</p>
+              </dt>
+                <dd><a href="https://www.salesforce.com">Read More</a></dd>
+            </dl>
+          </div>
+        </div>
+		<!-- / PAGE HEADER DETAIL ROW -->
+
+    
+    </div>
+    <!-- / PAGE HEADER -->
+
+
+    <!-- PRIMARY CONTENT WRAPPER -->
+    <div class="myapp slds-m-top--large">
+      <ul id="contact-list" class="slds-list--vertical slds-has-cards"></ul>
+    </div>
+    <!-- / PRIMARY CONTENT WRAPPER -->
+
+    <!-- FOOTER -->
+    <footer role="contentinfo" class="slds-p-around--large">
+      <!-- LAYOUT GRID -->
+      <div class="slds-grid slds-grid--align-spread">
+        <p class="slds-col">Trailhead 4 All Leaderboard</p>
+        <p class="slds-col">&copy; Shonnah Hughes</p>
+      </div>
+      <!-- / LAYOUT GRID -->
+    </footer>
+    <!-- / FOOTER -->
+
+  </div>
+  <!-- / REQUIRED SLDS WRAPPER -->    
+
+    <!-- JAVASCRIPT -->
+    <script>
+      var contact = new SObjectModel.Contact()
+      var contactList = document.getElementById('contact-list')
+    
+    function createTile (record) {
+      return [
+        '<div class="slds-media slds-tile slds-box slds slds-m-bottom--small">',
+          '<div class="slds-media__figure">',
+            '<img class="slds-avatar slds-avatar--medium" src="', record.get('PhotoUrl') ,'" alt=""/>',
+          '</div>',
+          '<div class="slds-media__body">',
+            '<p class="slds-tile__title slds-truncate">',
+              '<a href="#">', record.get('Name') ,'</a>',
+            '</p>',
+            '<div class="slds-tile__detail slds-text-body--small">',
+              '<p class="slds-truncate">', record.get('Title') ,'</p>',
+            '</div>',
+          '</div>',
+        '</div>'
+      ].join('')
+    }
+    
+      contact.retrieve(
+        { orderby: [{ LastModifiedDate: 'DESC' }], limit: 10 },
+        function(error, records) {
+          if (error) {
+            alert(error.message)
+          } else {
+            contactList.innerHTML = records.map(createTile).join('')
+          }
+        }
+      )
+    
+    </script>
+    <!-- / JAVASCRIPT -->
+
+
+</body>
+</html>
+</apex:page>
